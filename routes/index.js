@@ -68,8 +68,8 @@ router.get('/playlists', async (req,res) => {
 //Reference to spotifyAPI functions: https://github.com/thelinmichael/spotify-web-api-node/blob/4fae3c560c6c6a4aaf721019226ed3d619bd9910/src/spotify-web-api.js#L567
 router.get('/topartists', async (req,res) => {
   try {
-    //var req_options = {'time_range' : 'short_term'};
-    var result = await spotifyApi.getMyTopArtists();
+    var req_options = {'time_range' : 'short_term'};
+    var result = await spotifyApi.getMyTopArtists(req_options);
     console.log(result.body);
     res.status(200).send(result.body);
   } catch (err) {
